@@ -1,6 +1,5 @@
 import { useMutation } from 'react-query';
 import instance from '@api/axios';
-import { useSnackbar } from 'notistack';
 import { useContext } from 'react';
 import { LoginContext } from 'src/context/LoginContext';
 import Router from 'next/router';
@@ -30,7 +29,6 @@ type ResponseError = {
 };
 
 const useLogin = () => {
-  const { enqueueSnackbar } = useSnackbar();
   const { handleLogin } = useContext(LoginContext);
 
   return useMutation<responseTypes>(
@@ -43,12 +41,8 @@ const useLogin = () => {
       },
       onError: ({ response }: ResponseError) => {
         if (response.status === 400 && response.data.error[0].code === 1338) {
-          enqueueSnackbar(response.data.error[0].message, {
-            variant: 'warning'
-          });
           return Router.push('/change-password');
         }
-        enqueueSnackbar('usuário ou senha incorretos', { variant: 'error' });
         return null;
       }
     }

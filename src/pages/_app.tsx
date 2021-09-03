@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { SnackbarProvider } from 'notistack';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import MainLayout from '@layouts/Main';
@@ -39,24 +38,17 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Nextjs template</title>
+        <title>PEG Contas</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,800;1,400&display=swap"
-          rel="stylesheet"
         />
       </Head>
 
       <GlobalStyle />
       <LoginProvider>
         <QueryClientProvider client={queryClient}>
-          <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
-            <BuildLayout />
-          </SnackbarProvider>
+          <BuildLayout />
         </QueryClientProvider>
       </LoginProvider>
     </>

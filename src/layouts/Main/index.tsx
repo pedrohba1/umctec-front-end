@@ -1,10 +1,9 @@
-import Container from './styles';
+import SideBar from '@components/SideBar';
 
 const MainLayout = ({ children }) => {
   return (
     <>
-      {/* <Header /> */}
-      <Container>{children}</Container>
+      <SideBar>{children}</SideBar>
     </>
   );
 };
