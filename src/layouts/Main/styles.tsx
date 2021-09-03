@@ -8,10 +8,11 @@ export const Container = styled.main((props) => {
 
   return css`
     transition: all 0.2s;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    background: #f6f7fb;
     width: 100vw;
-    margin: 1.5rem calc(1.5rem + 5vw);
+    padding-top: 2rem;
   `;
 });
 
