@@ -17,6 +17,14 @@ const GlobalStyle = createGlobalStyle`
     }
     *{
         font-family: TitilliumWeb;
+        font-size: 14px;
+    }
+    h1{
+        font-size: 30px;
+    }
+    body{
+        margin:0;
+        padding:0;
     }
 `;
 
