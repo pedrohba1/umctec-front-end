@@ -1,10 +1,12 @@
 import SideBar from '@components/SideBar';
+import { Container, Layout } from './styles';
 
 const MainLayout = ({ children }) => {
   return (
-    <>
-      <SideBar>{children}</SideBar>
-    </>
+    <Layout>
+      <SideBar />
+      <Container>{children}</Container>
+    </Layout>
   );
 };
 
