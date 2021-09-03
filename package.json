@@ -21,9 +21,9 @@
     }
   },
   "dependencies": {
-    "@date-io/date-fns": "1.x",
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
+    "antd": "^4.16.13",
     "axios": "^0.21.1",
     "jwt-decode": "^3.1.2",
     "next": "10.0.6",
