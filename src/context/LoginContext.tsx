@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import Router, { useRouter } from 'next/router';
-import { setCookie, parseCookies, destroyCookie } from 'nookies';
+import { setCookie, /* parseCookies, */ destroyCookie } from 'nookies';
 import instance from '@api/axios';
 import jwtDecode from 'jwt-decode';
 
@@ -61,7 +61,7 @@ export function LoginProvider({ children }: LoginProviderProps) {
   }
 
   useEffect(() => {
-    const { token: cookToken } = parseCookies();
+    /*     const { token: cookToken } = parseCookies();
     setToken(cookToken);
     if (!(typeof cookToken === 'undefined')) {
       const decoded = jwtDecode<JwtTypes>(cookToken);
@@ -69,8 +69,8 @@ export function LoginProvider({ children }: LoginProviderProps) {
       setJwt(decoded);
     } else {
       setJwt({} as JwtTypes);
-      Router.push('/login');
-    }
+      Router.push('/activities');
+    } */
   }, [router.asPath]);
 
   return (
