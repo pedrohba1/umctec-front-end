@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useMediaQuery from '@hooks/media/useMediaQuery';
 import useWindowDimensions from '@hooks/media/useWindowDimension';
+import { useRouter } from 'next/router';
+
 import Link from 'next';
 import {
   Nav,
@@ -13,12 +15,20 @@ import {
 } from './styles';
 
 const SideBar = () => {
+  const router = useRouter();
+
   const isMobile = useMediaQuery(800);
   const { width } = useWindowDimensions();
   const [open, setOpen] = useState(width > 800);
+  const [route, setRoute] = useState(router.pathname);
 
-  const handleChecked = (route) => {
-    return route;
+  const check = (current) => {
+    return current === route;
+  };
+
+  const changeRoute = (value) => {
+    setRoute(value);
+    router.push(value);
   };
 
   return (
@@ -31,14 +41,19 @@ const SideBar = () => {
           width: '100%'
         }}
       />
-
       <List>
-        <Item>
-          <AccountsIcon color="#8b98ba" />
+        <Item
+          onClick={() => changeRoute('/activities')}
+          isSelected={check('/activities')}
+        >
+          <AccountsIcon color={check('/activities') ? '#2793ff' : '#8b98ba'} />
           <span>minhas atividades</span>
         </Item>
-        <Item>
-          <UserIcon color="#8b98ba" />
+        <Item
+          onClick={() => changeRoute('/users')}
+          isSelected={check('/users')}
+        >
+          <UserIcon color={check('/users') ? '#2793ff' : '#8b98ba'} />
           <span>Usuários</span>
         </Item>
         <Item>
