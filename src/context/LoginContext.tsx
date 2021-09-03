@@ -50,7 +50,7 @@ export function LoginProvider({ children }: LoginProviderProps) {
 
     instance.defaults.headers.Authorization = `Bearer ${resToken}`;
 
-    Router.push('/home');
+    Router.push('/activities');
   }
 
   function handleLogOut() {

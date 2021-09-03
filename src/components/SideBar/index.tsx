@@ -1,12 +1,25 @@
 import { useState } from 'react';
 import useMediaQuery from '@hooks/media/useMediaQuery';
 import useWindowDimensions from '@hooks/media/useWindowDimension';
-import { Nav, Item, List } from './styles';
+import Link from 'next';
+import {
+  Nav,
+  Item,
+  List,
+  UserIcon,
+  AccountsIcon,
+  PerformanceIcon,
+  DashboardIcon
+} from './styles';
 
 const SideBar = () => {
   const isMobile = useMediaQuery(800);
   const { width } = useWindowDimensions();
   const [open, setOpen] = useState(width > 800);
+
+  const handleChecked = (route) => {
+    return route;
+  };
 
   return (
     <Nav>
@@ -18,21 +31,22 @@ const SideBar = () => {
           width: '100%'
         }}
       />
+
       <List>
         <Item>
-          <img src="/assets/images/accounts.svg" alt="activities" />
+          <AccountsIcon color="#8b98ba" />
           <span>minhas atividades</span>
         </Item>
         <Item>
-          <img src="/assets/images/user.svg" alt="activities" />
+          <UserIcon color="#8b98ba" />
           <span>Usuários</span>
         </Item>
         <Item>
-          <img src="/assets/images/performance.svg" alt="activities" />
+          <PerformanceIcon color="#8b98ba" />
           <span>Desempenho</span>
         </Item>
         <Item>
-          <img src="/assets/images/dashboard.svg" alt="activities" />
+          <DashboardIcon color="#8b98ba" />
           <span>Dashboard</span>
         </Item>
       </List>
