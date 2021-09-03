@@ -1,4 +1,4 @@
-const SideBar = ({ children }) => {
+const SideBar = () => {
   return <></>;
 };
 export default SideBar;
