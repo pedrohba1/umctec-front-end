@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { SnackbarProvider } from 'notistack';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import MainLayout from '@layouts/Main';
@@ -54,9 +53,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       <LoginProvider>
         <QueryClientProvider client={queryClient}>
-          <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
-            <BuildLayout />
-          </SnackbarProvider>
+          <BuildLayout />
         </QueryClientProvider>
       </LoginProvider>
     </>

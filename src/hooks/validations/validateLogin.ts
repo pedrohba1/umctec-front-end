@@ -5,7 +5,6 @@ export default async function validateLogin(
   data,
   formRef: MutableRefObject<any>
 ) {
-  console.log(data);
   try {
     // Remove all previous errors
     formRef.current.setErrors({});

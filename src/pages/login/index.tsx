@@ -5,29 +5,19 @@ import {
   Form,
   DefInput as Input,
   Button,
-  PasswordInput,
+  PasswordInput
 } from '@styles/pages/login';
 
 import Link from 'next/link';
 
-import { useSnackbar } from 'notistack';
-
 function Login() {
-  const { enqueueSnackbar } = useSnackbar();
   const { isLoading, mutate } = useLogin();
 
   const formRef = useRef(null);
 
   const handleSubmit = async (fieldValues) => {
-    console.log(fieldValues);
-    try {
-      await validateLogin(fieldValues, formRef);
-      mutate(fieldValues);
-    } catch {
-      enqueueSnackbar(`verify your data`, {
-        variant: 'error'
-      });
-    }
+    await validateLogin(fieldValues, formRef);
+    mutate(fieldValues);
   };
 
   return (
@@ -38,8 +28,8 @@ function Login() {
         <Button>{isLoading ? 'loading' : 'login'}</Button>
       </Form>
       <Link href="/test">
-          <a>teste</a>
-        </Link>
+        <a>teste</a>
+      </Link>
     </>
   );
 }
