@@ -9,7 +9,6 @@ export const Header = styled.div`
 export const Footer = styled.div`
   display: flex;
   width: 100%;
-  margin: 3rem 0;
   justify-content: center;
 `;
 
