@@ -4,13 +4,33 @@ import {
   CardContainer,
   Footer
 } from '@styles/pages/activities';
+import Select from '@components/Select';
+import useGetActivities from '@hooks/calls/activity/useGetActivities';
 
-function Home() {
+const Activities = () => {
+  const {
+    ActivityQuery: { data, status },
+    setSelect,
+    selectState
+  } = useGetActivities();
+
+  const onChangeSelect = (value) => {
+    setSelect(value);
+  };
+
   return (
     <Container>
       <Header>
         <div>
-          <p> activity select</p>
+          {status === 'success' ? (
+            <Select
+              status={status}
+              options={data}
+              value={selectState}
+              onChange={onChangeSelect}
+              placeholder="Selecionar atividade..."
+            />
+          ) : null}
         </div>
         <div>
           <p> card sumamry</p>
@@ -52,7 +72,6 @@ function Home() {
           <h2>card</h2>
         </div>
       </CardContainer>
-
       <Footer>
         <div>
           <h2> pages</h2>
@@ -60,6 +79,6 @@ function Home() {
       </Footer>
     </Container>
   );
-}
+};
 
-export default Home;
+export default Activities;
