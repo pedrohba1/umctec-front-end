@@ -1,25 +1,41 @@
 import { useQuery } from 'react-query';
 import axios from '@api/axios';
+import { useState } from 'react';
 
-type Activities = {
+export type Activity = {
   id: number;
   title: string;
   subtitle: string;
   sla: number;
   createdAt: Date;
   updatedAt: Date;
-}[];
-
-const fetch = async () => {
-  const { data } = await axios.get<Activities>(`/activities`, {
-    params: { page: 1, pageSize: 10 }
-  });
-  return data.map((activity) => ({
-    value: activity,
-    label: activity.title
-  }));
 };
 
+type Activities = Activity[];
+
+type FnData = {
+  label: string;
+  value: Activity;
+}[];
+
 export default function getActivities() {
-  return useQuery('get/activities', () => fetch());
+  const [selectState, setSelect] =
+    useState<{ label: string; value: Activity }>();
+
+  const fetch = async () => {
+    const { data } = await axios.get<Activities>(`/activities`, {
+      params: { page: 1, pageSize: 10 }
+    });
+    const res = data.map((act) => ({
+      value: act,
+      label: act.title
+    }));
+    setSelect(res[0]);
+    return res;
+  };
+  const ActivityQuery = useQuery<FnData, Error>('get/activities', () =>
+    fetch()
+  );
+
+  return { ActivityQuery, selectState, setSelect };
 }
