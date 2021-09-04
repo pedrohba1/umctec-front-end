@@ -8,6 +8,16 @@ export const Header = styled.div`
   }
 `;
 
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  span {
+    margin-right: 5px;
+  }
+`;
+
 export const Footer = styled.div`
   display: flex;
   width: 100%;

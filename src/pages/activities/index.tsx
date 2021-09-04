@@ -2,21 +2,39 @@ import {
   Container,
   Header,
   CardContainer,
-  Footer
+  Footer,
+  FilterContainer
 } from '@styles/pages/activities';
 import Select from '@components/Select';
 import Summary from '@components/Summary';
+import Filter from '@components/Filter';
 import useGetActivities from '@hooks/calls/activity/useGetActivities';
+import { useState } from 'react';
 
 const Activities = () => {
   const {
     ActivityQuery: { data, status },
-    setSelect,
-    selectState
+    selectedAct,
+    setAct
   } = useGetActivities();
 
   const onChangeSelect = (value) => {
-    setSelect(value);
+    setAct(value);
+  };
+
+  const [filter, setFilter] = useState();
+  const filterOptions = [
+    {
+      value: 'TO_RECEIVE',
+      label: 'Receber documentos'
+    },
+    {
+      value: 'TO_SEND',
+      label: 'Prioridade(SLA)'
+    }
+  ];
+  const onChangeFilter = (value) => {
+    setFilter(value);
   };
 
   return (
@@ -26,22 +44,27 @@ const Activities = () => {
           {status === 'success' ? (
             <>
               <Select
-                status={status}
                 options={data}
-                value={selectState}
+                value={selectedAct}
                 onChange={onChangeSelect}
                 placeholder="Selecionar atividade..."
               />
-              <span>{selectState.value.subtitle}</span>
+              <span>{selectedAct.value.subtitle}</span>
             </>
           ) : null}
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          {status === 'success' ? <Summary id={selectState.value.id} /> : null}
+          {status === 'success' ? <Summary id={selectedAct.value.id} /> : null}
         </div>
-        <div>
-          <p> filter</p>
-        </div>
+        <FilterContainer>
+          <span>Organizar por</span>
+          <Filter
+            options={filterOptions}
+            value={filter}
+            onChange={onChangeFilter}
+            placeholder="selecionar filtro"
+          />
+        </FilterContainer>
       </Header>
       <div style={{ alignSelf: 'flex-end' }}>
         <p> select all</p>
