@@ -15,7 +15,6 @@
       "@api/*": ["src/api/*"],
       "@layouts/*": ["src/layouts/*"],
       "@theme/*": ["src/theme/*"],
-      "@assets/*": ["src/assets/*"],
       "@mocks/*": ["src/mocks/*"],
       "@hooks/*": ["src/hooks/*"]
     },
