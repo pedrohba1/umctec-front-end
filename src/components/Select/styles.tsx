@@ -8,10 +8,14 @@ type MyOptionType = {
 };
 
 const Styles: StylesConfig<MyOptionType, IsMulti> = {
-  container: (provided) => ({
-    ...provided,
-    border: 'none'
-  }),
+  container: (provided /* state */) => {
+    /*     const { label } = state.getValue()[0];
+     */ return {
+      width: `50%`,
+      ...provided,
+      border: 'none'
+    };
+  },
   option: (provided) => ({
     ...provided,
     border: 'none'
@@ -20,7 +24,7 @@ const Styles: StylesConfig<MyOptionType, IsMulti> = {
     ...provided,
     border: 'none'
   }),
-  control: (provided, state) => ({
+  control: (provided) => ({
     ...provided,
     border: 'none',
     backgroundColor: 'none',
@@ -29,12 +33,12 @@ const Styles: StylesConfig<MyOptionType, IsMulti> = {
   placeholder: (provided) => ({
     ...provided,
     fontWeight: 'lighter',
-    fontSize: '2em'
+    fontSize: '1.5rem'
   }),
   singleValue: (provided) => ({
     ...provided,
     fontWeight: 'lighter',
-    fontSize: '2em'
+    fontSize: '1.5rem'
   }),
   indicatorSeparator: (provided) => ({
     ...provided,
