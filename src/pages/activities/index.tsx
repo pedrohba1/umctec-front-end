@@ -36,12 +36,9 @@ const Activities = () => {
             </>
           ) : null}
         </div>
-        {status === 'success' ? (
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Summary id={selectState.value.id} />
-          </div>
-        ) : null}
-
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          {status === 'success' ? <Summary id={selectState.value.id} /> : null}
+        </div>
         <div>
           <p> filter</p>
         </div>
