@@ -1,7 +1,12 @@
-import ReactSelect from 'react-select';
+import ReactSelect, {
+  OptionTypeBase,
+  Props as SelectProps
+} from 'react-select';
 import styles from './styles';
 
-const Select = ({ ...rest }) => {
+interface Props extends SelectProps<OptionTypeBase> {}
+
+const Select = ({ ...rest }: Props) => {
   return <ReactSelect styles={styles} {...rest} />;
 };
 
