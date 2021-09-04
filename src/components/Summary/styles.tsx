@@ -2,6 +2,11 @@ import styled, { css } from 'styled-components';
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+`;
+
+export const DotContainer = styled.div`
+  display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-around;
