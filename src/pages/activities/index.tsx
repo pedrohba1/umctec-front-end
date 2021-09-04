@@ -23,13 +23,16 @@ const Activities = () => {
       <Header>
         <div>
           {status === 'success' ? (
-            <Select
-              status={status}
-              options={data}
-              value={selectState}
-              onChange={onChangeSelect}
-              placeholder="Selecionar atividade..."
-            />
+            <>
+              <Select
+                status={status}
+                options={data}
+                value={selectState}
+                onChange={onChangeSelect}
+                placeholder="Selecionar atividade..."
+              />
+              <span>{selectState.value.subtitle}</span>
+            </>
           ) : null}
         </div>
         <div>

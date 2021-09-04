@@ -33,8 +33,12 @@ export default function getActivities() {
     setSelect(res[0]);
     return res;
   };
-  const ActivityQuery = useQuery<FnData, Error>('get/activities', () =>
-    fetch()
+  const ActivityQuery = useQuery<FnData, Error>(
+    'get/activities',
+    () => fetch(),
+    {
+      refetchOnWindowFocus: false
+    }
   );
 
   return { ActivityQuery, selectState, setSelect };
