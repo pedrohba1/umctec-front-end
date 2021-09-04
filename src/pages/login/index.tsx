@@ -10,7 +10,7 @@ import {
 
 import Link from 'next/link';
 
-function Login() {
+const Login = () => {
   const { isLoading, mutate } = useLogin();
 
   const formRef = useRef(null);
@@ -32,6 +32,6 @@ function Login() {
       </Link>
     </>
   );
-}
+};
 
 export default Login;

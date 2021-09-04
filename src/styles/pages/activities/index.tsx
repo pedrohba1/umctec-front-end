@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const Header = styled.div`
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  & > div {
+    width: 100%;
+  }
 `;
 
 export const Footer = styled.div`
