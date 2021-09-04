@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
-import useMediaQuery from '@hooks/media/useMediaQuery';
-import useWindowDimensions from '@hooks/media/useWindowDimension';
+import { useState } from 'react';
+/* import useMediaQuery from '@hooks/media/useMediaQuery';
+import useWindowDimensions from '@hooks/media/useWindowDimension'; */
 import { useRouter } from 'next/router';
 
-import Link from 'next';
 import {
   Nav,
   Item,
@@ -17,9 +16,9 @@ import {
 const SideBar = () => {
   const router = useRouter();
 
-  const isMobile = useMediaQuery(800);
+  /*   const isMobile = useMediaQuery(800);
   const { width } = useWindowDimensions();
-  const [open, setOpen] = useState(width > 800);
+  const [open, setOpen] = useState(width > 800); */
   const [route, setRoute] = useState(router.pathname);
 
   const check = (current) => {
