@@ -5,6 +5,7 @@ import {
   Footer
 } from '@styles/pages/activities';
 import Select from '@components/Select';
+import Summary from '@components/Summary';
 import useGetActivities from '@hooks/calls/activity/useGetActivities';
 
 const Activities = () => {
@@ -35,9 +36,12 @@ const Activities = () => {
             </>
           ) : null}
         </div>
-        <div>
-          <p> card sumamry</p>
-        </div>
+        {status === 'success' ? (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Summary id={selectState.value.id} />
+          </div>
+        ) : null}
+
         <div>
           <p> filter</p>
         </div>
