@@ -12,12 +12,13 @@ export const Container = styled.main((props) => {
     flex-direction: column;
     background: #f6f7fb;
     width: 100vw;
+    height: 100vh;
     padding-top: 2rem;
   `;
 });
 
 export const Layout = styled.div`
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: row;
 `;

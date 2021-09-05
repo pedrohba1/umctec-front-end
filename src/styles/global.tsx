@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
         color: #1f274c;
         font-size: 30px;
     }
-    body{
+    html, body{
         margin:0;
         padding:0;
     }
