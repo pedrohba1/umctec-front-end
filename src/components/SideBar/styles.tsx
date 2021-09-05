@@ -1,15 +1,8 @@
 import styled, { css } from 'styled-components';
 
-export const Nav = styled.main((props) => {
-  const {
-    // eslint-disable-next-line no-empty-pattern
-    theme: {}
-  } = props;
-
-  return css`
-    background: #e7ebf7;
-  `;
-});
+export const Nav = styled.main`
+  background: #e7ebf7;
+`;
 
 export const List = styled.div`
   display: flex;
