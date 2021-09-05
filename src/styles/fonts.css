@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'TitilliumWeb';
+     src: url('/assets/fonts/TitilliumWeb-Regular.ttf');
+     font-display: swap;
+    }
+    @font-face {
+    font-family: 'TitilliumWeb';
+     src: url('/assets/fonts/TitilliumWeb-Bold.ttf');
+     font-weight: bold;
+     font-display: swap;
+    }
+    @font-face {
+    font-family: 'TitilliumWeb';
+     src: url('/assets/fonts/TitilliumWeb-Light.ttf');
+     font-weight: lighter;
+     font-display: swap;
+    }
