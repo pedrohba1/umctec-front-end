@@ -32,6 +32,16 @@ export type Card = {
     createdAt: string;
     updatedAt: string;
   };
+  bill: {
+    id: number;
+    account: string;
+    attendance: string;
+    shipping: string;
+    batch: string;
+    billType: string;
+    createdAt: string;
+    updatedAt: string;
+  };
   slaStatus: string;
 };
 
@@ -49,6 +59,8 @@ export default function getCards(activityId: number, filter: string) {
   const fetch = async (id: number, param: string) => {
     const { data } = await axios.get<Cards>(`/cards/${id}`, {
       params: {
+        page: 1,
+        perPage: 9,
         filter: param
       }
     });
