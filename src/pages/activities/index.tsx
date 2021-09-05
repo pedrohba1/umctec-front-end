@@ -8,7 +8,9 @@ import {
 import Select from '@components/Select';
 import Summary from '@components/Summary';
 import Filter from '@components/Filter';
+import Card from '@components/Card';
 import useGetActivities from '@hooks/calls/activity/useGetActivities';
+import useGetCards from '@hooks/calls/activity/useGetCards';
 import { useState } from 'react';
 
 const Activities = () => {
@@ -22,8 +24,16 @@ const Activities = () => {
     setAct(value);
   };
 
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState<{ value: string; label: string }>({
+    value: '',
+    label: 'Todos'
+  });
+
   const filterOptions = [
+    {
+      value: '',
+      label: 'Todos'
+    },
     {
       value: 'TO_RECEIVE',
       label: 'Receber documentos'
@@ -36,6 +46,8 @@ const Activities = () => {
   const onChangeFilter = (value) => {
     setFilter(value);
   };
+
+  const { data: cardsData } = useGetCards(selectedAct?.value.id, filter.value);
 
   return (
     <Container>
@@ -71,33 +83,9 @@ const Activities = () => {
       </div>
 
       <CardContainer>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
+        {cardsData?.cards.map((card) => (
+          <Card {...card} />
+        ))}
       </CardContainer>
       <Footer>
         <div>

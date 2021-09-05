@@ -19,7 +19,8 @@ type FnData = {
 }[];
 
 export default function getActivities() {
-  const [selectedAct, setAct] = useState<{ label: string; value: Activity }>();
+  const [selectedAct, setAct] =
+    useState<{ label: string; value: Activity }>(undefined);
 
   const fetch = async () => {
     const { data } = await axios.get<Activities>(`/activities`, {

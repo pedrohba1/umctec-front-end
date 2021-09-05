@@ -34,10 +34,4 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
-
-  div {
-    border: 1px solid black;
-    height: 20vh;
-    text-align: center;
-  }
 `;
