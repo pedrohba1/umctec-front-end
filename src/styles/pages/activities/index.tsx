@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Header = styled.div`
   display: flex;
+  align-items: center;
+  height: 5vh;
   justify-content: space-between;
   & > div {
     width: 100%;
