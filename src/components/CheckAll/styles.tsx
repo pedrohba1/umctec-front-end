@@ -12,6 +12,7 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
   white-space: nowrap;
   width: 1px;
+  color: transparent;
 `;
 
 type CheckboxProps = {
@@ -21,6 +22,7 @@ type CheckboxProps = {
 export const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
+  margin-right: 1rem;
 `;
 
 export const StyledCheckbox = styled.div((props: CheckboxProps) => {

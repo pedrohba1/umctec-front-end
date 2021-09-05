@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import {
   Container,
   Header,
@@ -5,13 +7,15 @@ import {
   Footer,
   FilterContainer
 } from '@styles/pages/activities';
+
 import Select from '@components/Select';
 import Summary from '@components/Summary';
 import Filter from '@components/Filter';
 import Card from '@components/Card';
+import CheckAll from '@components/CheckAll';
+
 import useGetActivities from '@hooks/calls/activity/useGetActivities';
 import useGetCards from '@hooks/calls/activity/useGetCards';
-import { useState } from 'react';
 
 const Activities = () => {
   const {
@@ -24,6 +28,7 @@ const Activities = () => {
     setAct(value);
   };
 
+  const [checkAll, setCheckAll] = useState(false);
   const [filter, setFilter] = useState<{ value: string; label: string }>({
     value: '',
     label: 'Todos'
@@ -63,6 +68,11 @@ const Activities = () => {
     setChecked(newArr);
   };
 
+  const handleCheckAll = () => {
+    setCheckAll(!checkAll);
+    setChecked(checkedArr.map((item) => !item));
+  };
+
   return (
     <Container>
       <Header>
@@ -92,8 +102,10 @@ const Activities = () => {
           />
         </FilterContainer>
       </Header>
-      <div style={{ alignSelf: 'flex-end' }}>
-        <p> select all</p>
+
+      <div style={{ alignSelf: 'flex-end', margin: '1rem 0' }}>
+        <CheckAll state={checkAll} onCheckAll={handleCheckAll} />
+        <span>Selecionar tudo</span>
       </div>
 
       <CardContainer>
