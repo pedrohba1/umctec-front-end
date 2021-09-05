@@ -6,8 +6,8 @@ import styles from './styles';
 
 interface Props extends SelectProps<OptionTypeBase> {}
 
-const Select = ({ ...rest }: Props) => {
+const Filter = ({ ...rest }: Props) => {
   return <ReactSelect styles={styles} {...rest} />;
 };
 
-export default Select;
+export default Filter;
