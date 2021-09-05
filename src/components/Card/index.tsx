@@ -5,7 +5,9 @@ import Container, {
   NameContainer,
   TopContainer,
   MiddleContainer,
-  BillItem
+  BillItem,
+  ValueContainer,
+  PendencyContainer
 } from './styles';
 
 interface Props {
@@ -17,7 +19,15 @@ interface Props {
 
 const Card = (props: Props) => {
   const {
-    card: { daysSinceCreated, slaStatus, patient, insurance, bill },
+    card: {
+      daysSinceCreated,
+      slaStatus,
+      patient,
+      insurance,
+      bill,
+      totalAmount,
+      numberOfOpenPendencies
+    },
     checkbox,
     handleCheckbox,
     checkboxIndex
@@ -61,6 +71,12 @@ const Card = (props: Props) => {
           <span>{bill.batch}</span>
         </BillItem>
       </MiddleContainer>
+      <ValueContainer>
+        <span>{`R$ ${totalAmount}`}</span>
+        <PendencyContainer>
+          <span>{`${numberOfOpenPendencies} pendências`}</span>
+        </PendencyContainer>
+      </ValueContainer>
     </Container>
   );
 };

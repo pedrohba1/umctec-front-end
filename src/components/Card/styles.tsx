@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 const Container = styled.div`
-  height: 20vh;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -27,6 +26,19 @@ export const MiddleContainer = styled.div`
   justify-content: space-between;
 `;
 
+export const ValueContainer = styled.div`
+  background: #f5f6fa;
+  padding: 5px 10px;
+  display: flex;
+  border-radius: 4px;
+  flex-direction: row;
+  justify-content: space-between;
+  span {
+    color: #2c2e3a;
+    font-size: 1.5rem;
+  }
+`;
+
 export const BillItem = styled.div`
   text-align: left;
   span {
@@ -35,6 +47,19 @@ export const BillItem = styled.div`
   span:last-of-type {
     font-size: 1rem;
     font-weight: bold;
+  }
+`;
+
+export const PendencyContainer = styled.div`
+  border: 2px solid #2793ff;
+  border-radius: 25px;
+  text-align: center;
+  span {
+    display: flex;
+    padding: 5px 20px;
+    font-weight: bold;
+    color: #2793ff;
+    font-size: 1rem;
   }
 `;
 
