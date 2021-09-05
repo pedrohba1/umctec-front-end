@@ -28,6 +28,7 @@ export const Footer = styled.div`
 
 export const Container = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
   margin: 2rem calc(1.5rem + 5vw);
 `;
