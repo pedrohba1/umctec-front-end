@@ -33,7 +33,7 @@ export default function getActivities() {
     setAct(res[0]);
     return res;
   };
-  const ActivityQuery = useQuery<FnData, Error>(
+  const activityQuery = useQuery<FnData, Error>(
     'get/activities',
     () => fetch(),
     {
@@ -41,5 +41,5 @@ export default function getActivities() {
     }
   );
 
-  return { ActivityQuery, selectedAct, setAct };
+  return { activityQuery, selectedAct, setAct };
 }

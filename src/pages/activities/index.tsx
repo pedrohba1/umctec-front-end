@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 const Activities = () => {
   const {
-    ActivityQuery: { data, status },
+    activityQuery: { data, status },
     selectedAct,
     setAct
   } = useGetActivities();
@@ -47,7 +47,21 @@ const Activities = () => {
     setFilter(value);
   };
 
-  const { data: cardsData } = useGetCards(selectedAct?.value.id, filter.value);
+  const {
+    cardsQuery: { data: cardsData },
+    checkedArr,
+    setChecked
+  } = useGetCards(selectedAct?.value.id, filter.value);
+
+  const handleCheckbox = (index) => {
+    const newArr = checkedArr.map((item, i) => {
+      if (i === index) {
+        return !item;
+      }
+      return item;
+    });
+    setChecked(newArr);
+  };
 
   return (
     <Container>
@@ -61,12 +75,12 @@ const Activities = () => {
                 onChange={onChangeSelect}
                 placeholder="Selecionar atividade..."
               />
-              <span>{selectedAct.value.subtitle}</span>
+              <span>{selectedAct?.value.subtitle}</span>
             </>
           ) : null}
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          {status === 'success' ? <Summary id={selectedAct.value.id} /> : null}
+          {status === 'success' ? <Summary id={selectedAct?.value.id} /> : null}
         </div>
         <FilterContainer>
           <span>Organizar por</span>
@@ -83,8 +97,14 @@ const Activities = () => {
       </div>
 
       <CardContainer>
-        {cardsData?.cards.map((card) => (
-          <Card {...card} />
+        {cardsData?.cards.map((card, index) => (
+          <Card
+            key={card.id}
+            handleCheckbox={handleCheckbox}
+            card={card}
+            checkbox={checkedArr[index]}
+            checkboxIndex={index}
+          />
         ))}
       </CardContainer>
       <Footer>
