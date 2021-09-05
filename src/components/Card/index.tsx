@@ -7,7 +7,9 @@ import Container, {
   MiddleContainer,
   BillItem,
   ValueContainer,
-  PendencyContainer
+  PendencyContainer,
+  Document,
+  Attachment
 } from './styles';
 
 interface Props {
@@ -77,6 +79,15 @@ const Card = (props: Props) => {
           <span>{`${numberOfOpenPendencies} pendências`}</span>
         </PendencyContainer>
       </ValueContainer>
+      <MiddleContainer>
+        <div>
+          <span>{bill.billType}</span>
+        </div>
+        <div>
+          <Document />
+          <Attachment />
+        </div>
+      </MiddleContainer>
     </Container>
   );
 };
