@@ -11,15 +11,15 @@ export const Container = styled.main((props) => {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    background: #f6f7fb;
+    height: auto;
 
+    background: #f6f7fb;
     padding-top: 2rem;
   `;
 });
 
 export const Layout = styled.div`
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
 `;

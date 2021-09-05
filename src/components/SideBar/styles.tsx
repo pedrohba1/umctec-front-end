@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Nav = styled.main`
   background: #e7ebf7;
+  min-height: 100vh;
 `;
 
 export const List = styled.div`
