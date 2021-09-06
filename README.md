@@ -17,10 +17,10 @@ Just run `yarn` to install dependencies and you are good to go.
 ## Roadmap <a name = "roadmap"></a>
 
 1. Make the components first:
-- [ ] Card component
-- [ ] Component to show WARNING, OK, DELAYED 
+- [X] Card component
+- [X] Component to show WARNING, OK, DELAYED 
 - [ ] Page handler component
-- [ ] SideBar component ? (Don't know if necessary, I might not have enough resources to use it.
+- [X] SideBar component 
 
 
 

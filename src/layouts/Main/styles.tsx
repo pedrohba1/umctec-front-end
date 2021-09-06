@@ -10,14 +10,16 @@ export const Container = styled.main((props) => {
     transition: all 0.2s;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: auto;
+
     background: #f6f7fb;
-    width: 100vw;
     padding-top: 2rem;
   `;
 });
 
 export const Layout = styled.div`
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: row;
 `;

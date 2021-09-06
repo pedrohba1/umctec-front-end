@@ -19,7 +19,8 @@ type FnData = {
 }[];
 
 export default function getActivities() {
-  const [selectedAct, setAct] = useState<{ label: string; value: Activity }>();
+  const [selectedAct, setAct] =
+    useState<{ label: string; value: Activity }>(undefined);
 
   const fetch = async () => {
     const { data } = await axios.get<Activities>(`/activities`, {
@@ -32,7 +33,7 @@ export default function getActivities() {
     setAct(res[0]);
     return res;
   };
-  const ActivityQuery = useQuery<FnData, Error>(
+  const activityQuery = useQuery<FnData, Error>(
     'get/activities',
     () => fetch(),
     {
@@ -40,5 +41,5 @@ export default function getActivities() {
     }
   );
 
-  return { ActivityQuery, selectedAct, setAct };
+  return { activityQuery, selectedAct, setAct };
 }

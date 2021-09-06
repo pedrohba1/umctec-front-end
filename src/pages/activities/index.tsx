@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import {
   Container,
   Header,
@@ -5,15 +7,20 @@ import {
   Footer,
   FilterContainer
 } from '@styles/pages/activities';
+
 import Select from '@components/Select';
 import Summary from '@components/Summary';
 import Filter from '@components/Filter';
+import Card from '@components/Card';
+import CheckAll from '@components/CheckAll';
+import Paginator from '@components/Paginator';
+
 import useGetActivities from '@hooks/calls/activity/useGetActivities';
-import { useState } from 'react';
+import useGetCards from '@hooks/calls/activity/useGetCards';
 
 const Activities = () => {
   const {
-    ActivityQuery: { data, status },
+    activityQuery: { data, status },
     selectedAct,
     setAct
   } = useGetActivities();
@@ -22,8 +29,17 @@ const Activities = () => {
     setAct(value);
   };
 
-  const [filter, setFilter] = useState();
+  const [checkAll, setCheckAll] = useState(false);
+  const [filter, setFilter] = useState<{ value: string; label: string }>({
+    value: '',
+    label: 'Todos'
+  });
+
   const filterOptions = [
+    {
+      value: '',
+      label: 'Todos'
+    },
     {
       value: 'TO_RECEIVE',
       label: 'Receber documentos'
@@ -35,6 +51,29 @@ const Activities = () => {
   ];
   const onChangeFilter = (value) => {
     setFilter(value);
+  };
+
+  const [page, setPage] = useState(1);
+
+  const {
+    cardsQuery: { data: cardsData },
+    checkedArr,
+    setChecked
+  } = useGetCards(selectedAct?.value.id, filter.value, page);
+
+  const handleCheckbox = (index) => {
+    const newArr = checkedArr.map((item, i) => {
+      if (i === index) {
+        return !item;
+      }
+      return item;
+    });
+    setChecked(newArr);
+  };
+
+  const handleCheckAll = () => {
+    setCheckAll(!checkAll);
+    setChecked(checkedArr.map((item) => !item));
   };
 
   return (
@@ -49,12 +88,12 @@ const Activities = () => {
                 onChange={onChangeSelect}
                 placeholder="Selecionar atividade..."
               />
-              <span>{selectedAct.value.subtitle}</span>
+              <span>{selectedAct?.value.subtitle}</span>
             </>
           ) : null}
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          {status === 'success' ? <Summary id={selectedAct.value.id} /> : null}
+          {status === 'success' ? <Summary id={selectedAct?.value.id} /> : null}
         </div>
         <FilterContainer>
           <span>Organizar por</span>
@@ -66,43 +105,25 @@ const Activities = () => {
           />
         </FilterContainer>
       </Header>
-      <div style={{ alignSelf: 'flex-end' }}>
-        <p> select all</p>
+
+      <div style={{ alignSelf: 'flex-end', margin: '1rem 0' }}>
+        <CheckAll state={checkAll} onCheckAll={handleCheckAll} />
+        <span>Selecionar tudo</span>
       </div>
 
       <CardContainer>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
-        <div>
-          <h2>card</h2>
-        </div>
+        {cardsData?.cards.map((card, index) => (
+          <Card
+            key={card.id}
+            handleCheckbox={handleCheckbox}
+            card={card}
+            checkbox={checkedArr[index]}
+            checkboxIndex={index}
+          />
+        ))}
       </CardContainer>
       <Footer>
-        <div>
-          <h2> pages</h2>
-        </div>
+        <Paginator setPage={setPage} page={page} />
       </Footer>
     </Container>
   );

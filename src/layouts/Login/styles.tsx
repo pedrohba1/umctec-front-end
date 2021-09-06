@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
+  height: auto;
   display: flex;
   align-items: stretch;
 `;
@@ -36,5 +36,5 @@ export const LogoContainer = styled.div`
   margin-bottom: 50px;
   justify-content: center;
   width: 100%;
-  height: 100px;
+  height: auto;
 `;

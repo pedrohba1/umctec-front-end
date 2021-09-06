@@ -7,6 +7,7 @@ import LoginLayout from '@layouts/Login';
 import { LoginProvider } from 'src/context/LoginContext';
 
 import GlobalStyle from '@styles/global';
+import '@styles/fonts.css';
 
 const queryClient = new QueryClient();
 
