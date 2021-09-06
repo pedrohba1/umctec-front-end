@@ -4,6 +4,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
 `;
 
 export const DotContainer = styled.div`

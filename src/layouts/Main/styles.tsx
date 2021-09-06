@@ -12,7 +12,6 @@ export const Container = styled.main((props) => {
     flex-direction: column;
     width: 100%;
     height: auto;
-
     background: #f6f7fb;
     padding-top: 2rem;
   `;

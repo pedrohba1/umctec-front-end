@@ -5,7 +5,7 @@ const Container = styled.div`
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 
   span {
     font-size: 1.5rem;

@@ -9,7 +9,8 @@ import Container, {
   ValueContainer,
   PendencyContainer,
   Document,
-  Attachment
+  Attachment,
+  BillContainer
 } from './styles';
 
 interface Props {
@@ -55,7 +56,7 @@ const Card = (props: Props) => {
           />
         </div>
       </TopContainer>
-      <MiddleContainer>
+      <BillContainer>
         <BillItem>
           <span>Attend.</span>
           <span>{bill.attendance}</span>
@@ -72,7 +73,7 @@ const Card = (props: Props) => {
           <span>Lote</span>
           <span>{bill.batch}</span>
         </BillItem>
-      </MiddleContainer>
+      </BillContainer>
       <ValueContainer>
         <span>{`R$ ${totalAmount}`}</span>
         <PendencyContainer>

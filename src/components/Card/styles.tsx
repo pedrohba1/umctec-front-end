@@ -39,6 +39,25 @@ export const ValueContainer = styled.div`
   }
 `;
 
+export const BillContainer = styled.div`
+  background: #f5f6fa;
+  padding: 5px 10px;
+  display: flex;
+  border-radius: 4px;
+  flex-direction: row;
+  justify-content: space-between;
+  span {
+    color: #2c2e3a;
+    font-size: 1.5rem;
+  }
+  @media (max-width: 800px) {
+    display: grid;
+    align-content: space-around;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
 export const BillItem = styled.div`
   text-align: left;
   span {
@@ -85,12 +104,6 @@ export const NameContainer = styled.div`
   }
 `;
 
-export const BillContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
 export const DotContainer = styled.span((props: DotProps) => {
   const { slaStatus } = props;
 
@@ -118,6 +131,7 @@ export const DotContainer = styled.span((props: DotProps) => {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 1rem;
 
     span:first-of-type {
       font-size: 1.7rem;
