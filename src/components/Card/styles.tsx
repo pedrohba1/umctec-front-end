@@ -37,11 +37,35 @@ export const ValueContainer = styled.div`
     color: #2c2e3a;
     font-size: 1.5rem;
   }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const BillContainer = styled.div`
+  padding: 5px 10px;
+  display: flex;
+  border-radius: 4px;
+  flex-direction: row;
+  justify-content: space-between;
+  span {
+    color: #2c2e3a;
+    font-size: 1.5rem;
+  }
+  @media (max-width: 1200px) {
+    display: grid;
+    align-content: space-around;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const BillItem = styled.div`
   text-align: left;
   span {
+    font-size: 1rem;
     display: block;
   }
   span:last-of-type {
@@ -52,14 +76,26 @@ export const BillItem = styled.div`
 
 export const PendencyContainer = styled.div`
   border: 2px solid #2793ff;
-  border-radius: 25px;
+  border-radius: 2rem;
   text-align: center;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 1200px) {
+    width: 20%;
+  }
+  @media (max-width: 800px) {
+    width: 50%;
+  }
+  @media (max-width: 300px) {
+    width: 100%;
+  }
   span {
     display: flex;
-    padding: 5px 20px;
+    padding: 0.2em 0.2em;
     font-weight: bold;
     color: #2793ff;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 `;
 
@@ -83,12 +119,6 @@ export const NameContainer = styled.div`
     font-size: 1rem;
     font-weight: regular;
   }
-`;
-
-export const BillContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 `;
 
 export const DotContainer = styled.span((props: DotProps) => {
@@ -118,6 +148,7 @@ export const DotContainer = styled.span((props: DotProps) => {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 1rem;
 
     span:first-of-type {
       font-size: 1.7rem;

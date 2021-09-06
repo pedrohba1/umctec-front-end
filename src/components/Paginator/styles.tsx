@@ -5,7 +5,7 @@ const Container = styled.div`
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 
   span {
     font-size: 1.5rem;
@@ -19,6 +19,11 @@ const Container = styled.div`
     cursor: pointer;
     outline: inherit;
     font-size: 1.5rem;
+  }
+  @media (max-width: 1200px) {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
   }
 `;
 

@@ -11,8 +11,6 @@ export const Container = styled.main((props) => {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: auto;
-
     background: #f6f7fb;
     padding-top: 2rem;
   `;
@@ -21,5 +19,6 @@ export const Container = styled.main((props) => {
 export const Layout = styled.div`
   height: auto;
   display: flex;
+  min-height: 100vh;
   flex-direction: row;
 `;
