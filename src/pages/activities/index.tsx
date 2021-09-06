@@ -92,9 +92,8 @@ const Activities = () => {
             </>
           ) : null}
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          {status === 'success' ? <Summary id={selectedAct?.value.id} /> : null}
-        </div>
+        {status === 'success' ? <Summary id={selectedAct?.value.id} /> : null}
+
         <FilterContainer>
           <span>Organizar por</span>
           <Filter

@@ -8,6 +8,12 @@ export const Header = styled.div`
   & > div {
     width: 100%;
   }
+
+  @media (max-width: 800px) {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
 `;
 
 export const FilterContainer = styled.div`

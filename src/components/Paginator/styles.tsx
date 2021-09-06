@@ -20,6 +20,11 @@ const Container = styled.div`
     outline: inherit;
     font-size: 1.5rem;
   }
+  @media (max-width: 800px) {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+  }
 `;
 
 export default Container;

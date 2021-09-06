@@ -3,20 +3,17 @@ import styled, { css } from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  @media (max-width: 800px) {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
+  justify-content: space-between;
 `;
 
 export const DotContainer = styled.div`
   display: flex;
   width: 100%;
-  align-items: center;
-  justify-content: space-around;
-
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
   span {
     margin: 0 5px;
     font-size: 1.2rem;

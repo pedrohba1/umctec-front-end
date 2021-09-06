@@ -8,10 +8,11 @@ type MyOptionType = {
 };
 
 const Styles: StylesConfig<MyOptionType, IsMulti> = {
-  container: (provided /* state */) => {
-    /*     const { label } = state.getValue()[0];
-     */ return {
-      width: `50%`,
+  container: (provided, state) => {
+    const { width } = state.selectProps;
+
+    return {
+      width: `${width < 800 ? '100%' : '50%'}`,
       ...provided,
       border: 'none'
     };
