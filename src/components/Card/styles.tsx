@@ -37,10 +37,14 @@ export const ValueContainer = styled.div`
     color: #2c2e3a;
     font-size: 1.5rem;
   }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const BillContainer = styled.div`
-  background: #f5f6fa;
   padding: 5px 10px;
   display: flex;
   border-radius: 4px;
@@ -72,14 +76,26 @@ export const BillItem = styled.div`
 
 export const PendencyContainer = styled.div`
   border: 2px solid #2793ff;
-  border-radius: 25px;
+  border-radius: 2rem;
   text-align: center;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 1200px) {
+    width: 20%;
+  }
+  @media (max-width: 800px) {
+    width: 50%;
+  }
+  @media (max-width: 300px) {
+    width: 100%;
+  }
   span {
     display: flex;
-    padding: 5px 20px;
+    padding: 0.2em 0.2em;
     font-weight: bold;
     color: #2793ff;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 `;
 
