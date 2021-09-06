@@ -53,13 +53,17 @@ type Cards = {
   };
 };
 
-export default function getCards(activityId: number, filter: string) {
+export default function getCards(
+  activityId: number,
+  filter: string,
+  page: number
+) {
   const [checkedArr, setChecked] = useState<boolean[]>([]);
 
-  const fetch = async (id: number, param: string) => {
+  const fetch = async (id: number, param: string, pageNumber: number) => {
     const { data } = await axios.get<Cards>(`/cards/${id}`, {
       params: {
-        page: 1,
+        page: pageNumber,
         perPage: 9,
         filter: param
       }
@@ -70,11 +74,11 @@ export default function getCards(activityId: number, filter: string) {
   };
 
   const cardsQuery = useQuery<Cards, Error>(
-    ['get/cards', activityId, filter],
-    () => fetch(activityId, filter),
+    ['get/cards', activityId, filter, page],
+    () => fetch(activityId, filter, page),
     {
       refetchOnWindowFocus: false,
-      enabled: !!activityId
+      enabled: !!activityId && !!page
     }
   );
   return { cardsQuery, checkedArr, setChecked };

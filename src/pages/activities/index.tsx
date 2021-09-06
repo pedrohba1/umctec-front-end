@@ -13,6 +13,7 @@ import Summary from '@components/Summary';
 import Filter from '@components/Filter';
 import Card from '@components/Card';
 import CheckAll from '@components/CheckAll';
+import Paginator from '@components/Paginator';
 
 import useGetActivities from '@hooks/calls/activity/useGetActivities';
 import useGetCards from '@hooks/calls/activity/useGetCards';
@@ -52,11 +53,13 @@ const Activities = () => {
     setFilter(value);
   };
 
+  const [page, setPage] = useState(1);
+
   const {
     cardsQuery: { data: cardsData },
     checkedArr,
     setChecked
-  } = useGetCards(selectedAct?.value.id, filter.value);
+  } = useGetCards(selectedAct?.value.id, filter.value, page);
 
   const handleCheckbox = (index) => {
     const newArr = checkedArr.map((item, i) => {
@@ -120,9 +123,7 @@ const Activities = () => {
         ))}
       </CardContainer>
       <Footer>
-        <div>
-          <h2> pages</h2>
-        </div>
+        <Paginator setPage={setPage} page={page} />
       </Footer>
     </Container>
   );
