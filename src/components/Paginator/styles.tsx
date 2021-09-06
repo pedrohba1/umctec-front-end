@@ -20,7 +20,7 @@ const Container = styled.div`
     outline: inherit;
     font-size: 1.5rem;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 1200px) {
     display: flex;
     width: 100%;
     flex-direction: row;

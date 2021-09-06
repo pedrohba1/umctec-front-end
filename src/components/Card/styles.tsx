@@ -50,7 +50,7 @@ export const BillContainer = styled.div`
     color: #2c2e3a;
     font-size: 1.5rem;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 1200px) {
     display: grid;
     align-content: space-around;
     justify-content: space-between;
@@ -61,6 +61,7 @@ export const BillContainer = styled.div`
 export const BillItem = styled.div`
   text-align: left;
   span {
+    font-size: 1rem;
     display: block;
   }
   span:last-of-type {

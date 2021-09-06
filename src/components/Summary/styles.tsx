@@ -9,7 +9,7 @@ const Container = styled.div`
 export const DotContainer = styled.div`
   display: flex;
   width: 100%;
-  @media (max-width: 800px) {
+  @media (max-width: 1200px) {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
