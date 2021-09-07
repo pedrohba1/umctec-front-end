@@ -1,11 +1,21 @@
 import SideBar from '@components/SideBar';
-import { Container, Layout } from './styles';
+import MobileSidebar from '@components/MobileSidebar';
+import { useState } from 'react';
+import { Container, Layout, Icon, NavButton } from './styles';
 
 const MainLayout = ({ children }) => {
+  const [openNav, setOpenNav] = useState(false);
+
   return (
     <Layout>
       <SideBar />
-      <Container>{children}</Container>
+      <MobileSidebar isOpen={openNav} setOpenNav={setOpenNav} />
+      <Container>
+        <NavButton onClick={() => setOpenNav(true)}>
+          <Icon />
+        </NavButton>
+        {children}
+      </Container>
     </Layout>
   );
 };
