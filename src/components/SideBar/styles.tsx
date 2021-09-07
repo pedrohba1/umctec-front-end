@@ -2,7 +2,11 @@ import styled, { css } from 'styled-components';
 
 export const Nav = styled.main`
   background: #e7ebf7;
-  min-height: 100vh;
+  @media (max-width: 800px) {
+    display:none;
+  }
+    align-items: center;
+  };
 `;
 
 export const List = styled.div`
