@@ -18,9 +18,11 @@ Just run `yarn` to install dependencies and you are good to go.
 
 1. Make the components first:
 - [X] Card component
-- [X] Component to show WARNING, OK, DELAYED 
+- [X] Component to show WARNING, OK, DELAYED
 - [X] Page handler component
-- [X] SideBar component 
+- [X] SideBar component
+- [X] Responsiveness
+
 
 
 
