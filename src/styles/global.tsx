@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     *{
         font-family: TitilliumWeb;
-        font-size: 14px;
+        font-size: 13px;
     }
     p, span{
         color: #1f274c;
@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
         color: #1f274c;
         font-size: 30px;
     }
-
 `;
 
 export default GlobalStyle;

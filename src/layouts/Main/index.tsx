@@ -1,13 +1,21 @@
 import SideBar from '@components/SideBar';
-import useWindowDimensions from '@hooks/media/useWindowDimension';
-import { Container, Layout } from './styles';
+import MobileSidebar from '@components/MobileSidebar';
+import { useState } from 'react';
+import { Container, Layout, Icon, NavButton } from './styles';
 
 const MainLayout = ({ children }) => {
-  const { width, height } = useWindowDimensions();
+  const [openNav, setOpenNav] = useState(false);
+
   return (
     <Layout>
-      {width < 800 ? null : <SideBar />}
-      <Container>{children}</Container>
+      <SideBar />
+      <MobileSidebar isOpen={openNav} setOpenNav={setOpenNav} />
+      <Container>
+        <NavButton onClick={() => setOpenNav(true)}>
+          <Icon />
+        </NavButton>
+        {children}
+      </Container>
     </Layout>
   );
 };

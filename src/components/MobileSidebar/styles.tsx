@@ -1,13 +1,27 @@
 import styled, { css } from 'styled-components';
 
-export const Nav = styled.main`
-  background: #e7ebf7;
-  @media (max-width: 800px) {
-    display:none;
-  }
-    align-items: center;
-  };
-`;
+type NavProps = {
+  isOpen: boolean;
+};
+
+export const Nav = styled.main((props: NavProps) => {
+  const { isOpen } = props;
+
+  return css`
+    background: #e7ebf7;
+    height: 100%;
+    width: ${isOpen ? 'auto' : '0'};
+
+    position: fixed;
+    z-index: 1;
+
+    overflow-x: hidden;
+
+    @media (min-width: 800px) {
+      display: none;
+    }
+  `;
+});
 
 export const List = styled.div`
   display: flex;
@@ -117,6 +131,26 @@ export const PerformanceIcon = ({ color, ...rest }) => {
           fill={color}
           fillRule="evenodd"
           d="M4.283 8c.217.002.384.03.384.367v8.39c0 .37-.202.41-.45.41H.95c-.248 0-.45-.04-.45-.41v-8.39C.5 7.997.702 8 .95 8zm5.84-2.5c.213.003.377.032.377.348v10.93c0 .351-.202.389-.45.389H6.784c-.249 0-.45-.038-.45-.39V5.849c0-.351.201-.348.45-.348zm5.833-5c.214.003.377.032.377.349v15.928c0 .352-.202.39-.45.39h-3.266c-.248 0-.45-.038-.45-.39V.849c0-.352.202-.349.45-.349zM9.458 6.491H7.375v9.914h2.083V6.491zm5.834-4.997h-2.084v14.91h2.084V1.493zM3.625 8.93H1.542v7.434h2.083V8.93z"
+        />
+      </svg>
+    </div>
+  );
+};
+
+export const XIcon = () => {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        color="#8b98ba"
+        viewBox="0 0 24 24"
+      >
+        <path fill="none" d="M0 0h24v24H0V0z" />
+        <path
+          fill="#8b98ba"
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
         />
       </svg>
     </div>
